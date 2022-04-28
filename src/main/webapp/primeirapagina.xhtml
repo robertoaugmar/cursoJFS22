@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+		<h:head>
+			<title>Ola JSF</title>
+		</h:head>
+		<h:body>
+			<h1>JSF Primeira Pagina</h1>
+			<h:form id="formPessoa">
+               
+               <h:outputText value = "Nome: " /> 			
+		       <h:inputText id="camponome" value="#{pessoaBean.nome}" />
+		       <br/>
+		       
+		       <h:outputText  value = "Sobrenome: " />
+		       <h:inputText id="camposobre" value="#{pessoaBean.sobrenome}" />
+		       <br/>
+		       
+		       <h:outputText  value = "Nome Completo: " />
+		       <h:inputText id="campocompleto" value="#{pessoaBean.nomeCompleto}" />
+		       <br/><br/>
+		       
+		       <h:commandButton binding="#{pessoaBean.hcb}" value = "Mostrar Nome" 
+		                        action="#{pessoaBean.mostrarNome}"/>
+		       <br/>
+		       
+		       <h:dataTable value="#{pessoaBean.nomes}" var="nome">
+		          <h:column>
+		               <h:outputText  value="#{nome}"/>
+		          </h:column>
+		          
+		       </h:dataTable>
+		
+			</h:form>
+		</h:body>
+
+</html>

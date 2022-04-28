@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+		<h:head>
+			<title>Ola JSF</title>
+		</h:head>
+		<h:body>
+			<h1>JSF Cadastra Pessoa</h1>
+			<h:form id="formPessoa">
+               
+               <h:messages id="msg"/>
+               <h:outputText value = "Id: " /> 			
+		       <h:inputText id="campoid" value="#{pessoaBean.pessoa.id}" readonly="true" />
+		       <br/> 
+               
+               <h:outputText value = "Nome: " /> 			
+		       <h:inputText id="camponome" value="#{pessoaBean.pessoa.nome}"
+		       required="true" requiredMessage="Informe o nome" 
+		       validatorMessage="Nome minimo 3 letras" >
+		           <f:validateLength minimum="3" maximun = "50" /> 
+		       </h:inputText>
+		       <br/>
+		       
+		       <h:outputText  value = "Sobrenome: " />
+		       <h:inputText id="camposobre" value="#{pessoaBean.pessoa.sobrenome}" />
+		       <br/>
+		       
+		       <h:outputText  value = "Idade : " />
+		       <h:inputText id="campoidade" value="#{pessoaBean.pessoa.idade}" />
+		       <br/>
+		       
+		       <!--  
+		       <h:outputText  value = "Data Nascimento : " />
+		       <h:inputText id="campodatanascimento" value="#{pessoaBean.pessoa.dataNascimento}" /> -->
+		       <br/><br/>
+		       
+		       <h:commandButton  value = "Novo"  action="#{pessoaBean.novo}" />
+		       <br/>
+		       <h:commandButton  value = "Salvar"  action="#{pessoaBean.salvar}" />
+		       <br/>
+		       <h:commandButton  value = "Remove"  action="#{pessoaBean.delete}" />
+		       <br/><br/>
+		      	
+		      <h:dataTable value='#{pessoaBean.pessoas}' var="pes">
+		      		<h:column>
+		      		   <h:outputText value="#{pes.id}" /> 
+		      		</h:column>
+		      		<h:column>
+		      		   <h:outputText value="#{pes.nome}" /> 
+		      		</h:column>
+		      		<h:column>
+		      		   <h:outputText value="#{pes.sobrenome}" /> 
+		      		</h:column>
+		      
+		      </h:dataTable>		
+			</h:form>
+		</h:body>
+
+</html>
